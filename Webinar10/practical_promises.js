@@ -5,6 +5,7 @@ function download (url) {
         } else {
             console.log("Start download : " + url);
             setTimeout(function () { // fake 3 second download task
+                console.log("Inside settimeout of download");
                 let fileName = url.split("/").pop();
                 resolve(fileName);
             }, 3000)
@@ -20,6 +21,7 @@ function resize (fileName) {
             console.log("Start resize : " + fileName);
             setTimeout(function () { // fake 3-sec resize task
                 // change x.png -> x-resized.png
+                console.log("Inside settimeout of resize");
                 let resizeFile = fileName.split(".")[0] + "-resized.png";
                 resolve(resizeFile);
             }, 3000)
@@ -31,6 +33,7 @@ function upload (resizedFileName) {
     return new Promise(function (resolve, reject) {
         console.log("Start upload : " + resizedFileName);
         setTimeout(function() { // fake 3-sec upload task
+            console.log("Inside settimeout of upload");
             let uploadedUrl = "http://imgur.com/" + resizedFileName;
             resolve(uploadedUrl);
         }, 3000)
