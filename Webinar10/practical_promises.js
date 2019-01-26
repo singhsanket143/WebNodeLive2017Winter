@@ -1,27 +1,27 @@
 function download (url) {
     return new Promise(function (resolve, reject) {
         if (!url.startsWith("http")) {
-            reject(new Error("Url does not start with http"))
+            reject(new Error("Url does not start with http"));
         } else {
-            console.log("Start download : " + url)
+            console.log("Start download : " + url);
             setTimeout(function () { // fake 3 second download task
-                let fileName = url.split("/").pop()
-                resolve(fileName)
+                let fileName = url.split("/").pop();
+                resolve(fileName);
             }, 3000)
         }
-    })
+    });
 }
 
 function resize (fileName) {
     return new Promise(function (resolve, reject) {
         if (!fileName.endsWith(".png")) {
-            reject(new Error("file is not png"))
+            reject(new Error("file is not png"));
         } else {
-            console.log("Start resize : " + fileName)
+            console.log("Start resize : " + fileName);
             setTimeout(function () { // fake 3-sec resize task
                 // change x.png -> x-resized.png
-                let resizedFile = fileName.split(".")[0] + "-resized.png"
-                resolve(resizedFile)
+                let resizeFile = fileName.split(".")[0] + "-resized.png";
+                resolve(resizeFile);
             }, 3000)
         }
     })
@@ -29,10 +29,10 @@ function resize (fileName) {
 
 function upload (resizedFileName) {
     return new Promise(function (resolve, reject) {
-        console.log("Start upload : " + resizedFileName)
+        console.log("Start upload : " + resizedFileName);
         setTimeout(function() { // fake 3-sec upload task
-            let uploadedUrl = "http://imgur.com/" + resizedFileName
-            resolve(uploadedUrl)
+            let uploadedUrl = "http://imgur.com/" + resizedFileName;
+            resolve(uploadedUrl);
         }, 3000)
     })
 }
@@ -45,4 +45,4 @@ download('http://cb.lk/logo.png')
     })
     .catch(function (err) {
         console.error(err)
-    })
+    });

@@ -9,6 +9,7 @@ function someAsyncTask (callback) {
 
 let someTaskPromise = function () {
     return new Promise(function (resolve, reject) {
+        console.log("Inside promise");
         someAsyncTask(resolve)
     })
 }
@@ -16,4 +17,4 @@ let someTaskPromise = function () {
 someTaskPromise()
     .then(function () {
         console.log("After task is complete")
-    })
+    });

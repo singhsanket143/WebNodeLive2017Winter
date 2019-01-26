@@ -9,10 +9,10 @@ function downloadPromise () {
     })
 }
 
-let downloadedFile = downloadPromise()
+let downloadedFile = downloadPromise();
 
 setTimeout(function () {
     downloadedFile.then(function () {
         console.log("After download")
     })
-}, 5000)
+}, 5000);
